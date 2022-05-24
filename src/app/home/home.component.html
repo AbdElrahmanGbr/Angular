@@ -1,0 +1,10 @@
+<p>home works!</p>
+<div *ngIf="isValid">{{ testing }}</div>
+<ul>
+  <li *ngFor="let country of peopleByCountry">
+    {{ country.country }}
+    <ul>
+      <li *ngFor="let eksde of country.people">{{ eksde.name }}</li>
+    </ul>
+  </li>
+</ul>
