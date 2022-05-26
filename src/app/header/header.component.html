@@ -1,4 +1,7 @@
 <div class="border border-primary p-4">
   <p>header works!</p>
-  <img src="{{ imgSource }}" class="img-fluid img-thumbnail w-25" alt="" />
+  <!-- property binding -->
+  <img [src]="imgSource" alt="" class="img-fluid img-thumbnail w-25" />
+  <!-- data interpolation -->
+<img src="{{ imgSource }}" class="img-fluid img-thumbnail w-25" alt="" />
 </div>
