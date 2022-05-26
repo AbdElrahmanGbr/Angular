@@ -22,9 +22,12 @@ export class DashboardComponent implements OnInit {
   taskArr: Task[] = [];
   // to store value of the task that will be givin to the crud service to add (two ways binding)
   addTaskValue: string = '';
+  editTaskValue: string = '';
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
+    this.editTaskValue = '';
+    this.addTaskValue = '';
     this.taskObj = new Task();
     this.taskArr = [];
     this.getAllTask();
@@ -49,6 +52,7 @@ export class DashboardComponent implements OnInit {
 
   // edit task from the taskArr
   editTask(){
+    this.taskObj.task_name = this.editTaskValue;
     this.crudService.editTask(this.taskObj).subscribe(res => {
       this.ngOnInit();
     }, err => {
@@ -64,4 +68,9 @@ deleteTask(etask: Task) {
     alert("Unable to Delete Task");
   });
 }
+
+  call(etask: Task) {
+    this.taskObj = etask;
+    this.editTaskValue = etask.task_name;
+  }
 }
