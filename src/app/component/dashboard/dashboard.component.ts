@@ -41,6 +41,12 @@ export class DashboardComponent implements OnInit {
   }
   // add task to the taskArr
   addTask() {
+    // make validation for empty task and task already exist
+    if (this.addTaskValue == '') {
+      alert("Task cannot be empty");
+    } else if (this.taskArr.find(x => x.task_name == this.addTaskValue)) {
+      alert("Task already exist");
+    } else {
     this.taskObj.task_name = this.addTaskValue;
     this.crudService.addTask(this.taskObj).subscribe(res => {
       this.ngOnInit();
@@ -48,16 +54,24 @@ export class DashboardComponent implements OnInit {
     }, err => {
       alert(err);
     });
+  }
 }
 
   // edit task from the taskArr
   editTask(){
+    // make validation for empty task and task already exist
+    if (this.editTaskValue == '') {
+      alert("Task cannot be empty");
+    } else if (this.taskArr.find(x => x.task_name == this.editTaskValue)) {
+      alert("Task already exist");
+    } else {
     this.taskObj.task_name = this.editTaskValue;
     this.crudService.editTask(this.taskObj).subscribe(res => {
       this.ngOnInit();
     }, err => {
       alert("Unable to edit task");
     });
+  }
   }
 
 // delete task from the taskArr
