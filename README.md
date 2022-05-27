@@ -1,5 +1,10 @@
 # Lab2
 
+
+
+https://user-images.githubusercontent.com/99536233/170605128-cafb056d-90b7-46d0-994b-a45658b7c1b5.mp4
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
 ## Development server
