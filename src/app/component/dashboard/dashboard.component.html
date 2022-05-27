@@ -12,10 +12,14 @@
                       <input type="text" class="form-control" placeholder="Enter task " name="task" [(ngModel)]="addTaskValue">
                       <button class="btn btn-outline-primary" type="button" (click)="addTask()"><fa-icon [icon]="add" style="font-size: 20px;"></fa-icon></button>
                     </div>
+                    <div class="input-group p-4">
+                        <input type="text" class="form-control" placeholder="Search by task" name="search" [(ngModel)]="searchText">
+                        <button class="btn btn-outline-secondary" type="button" (click)="searchTask()"><fa-icon [icon]="search2" style="font-size: 20px;"></fa-icon></button>
+                    </div>
               </div>
               <h4 class="text-primary mt-4">Tasks : </h4>
               <div style="overflow-y: auto; height: 350px;">
-                  <div class="m-3" *ngFor="let task of taskArr">
+                  <div class="m-3" *ngFor="let task of taskArr | filter:searchText">
                       <div class="p-2 shadow border" id="tasks" >
                           <div class="input-group row ps-3" >
                               <div class="card col-md-9 border-0"> {{task.task_name}} </div>

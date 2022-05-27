@@ -25,4 +25,7 @@ export class CrudService {
   editTask(task:Task): Observable<Task>{
     return this.http.put<Task>(this.serviceURL+'/'+task.id,task);
   }
+  searchTask(search:string): Observable<Task[]>{
+    return this.http.get<Task[]>(this.serviceURL+'?q='+search);
+  }
 }
